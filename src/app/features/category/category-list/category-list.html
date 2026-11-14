@@ -3,4 +3,41 @@
   <div class="d-flex justify-content-end mt-3">
     <a class="btn btn-primary" [routerLink]="['add']">Add Category</a>
   </div>
+
+  @if (isLoading()) {
+    <p>Loading categories...</p>
+  } @else {
+    @if (isError()) {
+      <p class="text-danger">Error loading categories.</p>
+    } @else {
+      <div class="border rounded-3 overflow-auto mt-3" style="max-height: 500px">
+        <table class="table table-striped mb-0">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">URL Handler</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (category of data(); track category.id) {
+              <tr>
+                <th scope="row">{{ category.id }}</th>
+                <td>{{ category.name }}</td>
+                <td>{{ category.urlHandle }}</td>
+                <td>
+                  <a class="btn btn-sm btn-outline-primary" [routerLink]="['edit', category.id]"
+                    >Edit</a
+                  >
+                  &nbsp;
+                  <a class="btn btn-sm btn-outline-danger">Delete</a>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  }
 </div>

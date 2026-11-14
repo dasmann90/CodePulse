@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="mat-3">Edit Category</h1>
+
+  <form [formGroup]="categoryForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Category Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" />
+      @if (this.nameFormControl.invalid && this.nameFormControl.touched) {
+        <div class="invalid-feedback" style="display: block">
+          Category name is required and must be at least 3 characters long.
+        </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="urlHandle" class="form-label">URL Handle (Slug)</label>
+      <input type="text" id="urlHandle" class="form-control" formControlName="urlHandle" />
+      @if (this.urlHandleFormControl.invalid && this.urlHandleFormControl.touched) {
+        <div class="invalid-feedback" style="display: block">
+          URL handle is required and must be at least 3 characters long.
+        </div>
+      }
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="categoryForm.invalid"
+      (click)="onSubmit()"
+    >
+      Edit Category
+    </button>
+  </form>
+</div>

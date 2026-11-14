@@ -20,6 +20,13 @@
         </div>
       }
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Add Category</button>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="categoryForm.invalid"
+      (click)="onSubmit()"
+    >
+      Add Category
+    </button>
   </form>
 </div>
