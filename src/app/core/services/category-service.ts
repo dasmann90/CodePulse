@@ -31,4 +31,8 @@ export class CategoryService {
   public updateCategory(id: string, data: ICategoryUpadte): Observable<any> {
     return this._http.put(`${this._baseUrl}/categories/${id}`, data);
   }
+
+  public deleteCategory(id: string): Observable<any> {
+    return this._http.delete(`${this._baseUrl}/categories/${id}`);
+  }
 }

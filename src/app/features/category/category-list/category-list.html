@@ -31,7 +31,11 @@
                     >Edit</a
                   >
                   &nbsp;
-                  <a class="btn btn-sm btn-outline-danger">Delete</a>
+                  <a
+                    class="btn btn-sm btn-outline-danger"
+                    (click)="deleteCategory(category.id.toString())"
+                    >Delete</a
+                  >
                 </td>
               </tr>
             }
